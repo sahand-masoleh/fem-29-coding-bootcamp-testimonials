@@ -26,9 +26,9 @@
 body {
 	min-height: 100vh;
 	display: grid;
-	grid-template-rows: 1fr auto;
 	padding: var(--gap-1) var(--gap-2);
 	background: bottom right / contain no-repeat url("./images/pattern-curve.svg");
+	position: relative;
 }
 
 .main {
@@ -50,7 +50,7 @@ body {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	background-color: white;
-	border-radius: 2rem;
+	border-radius: 100px;
 	display: flex;
 }
 
@@ -96,14 +96,100 @@ body {
 
 .testimonial__name {
 	font-weight: var(--fw-7);
+	font-size: var(--fs-m);
 }
 
 .testimonial__post {
 	font-weight: var(--fw-5);
 	color: var(--grayish-blue);
+	font-size: var(--fs-m);
 }
 
 .footer {
 	font-size: 0.5rem;
-	margin: auto;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	color: var(--grayish-blue);
+}
+
+.footer__link {
+	color: var(--dark-blue);
+	opacity: 0.75;
+}
+
+@media screen and (min-width: 800px) {
+	:root {
+		--fs-m: 24px;
+		--fs-l: 34px;
+	}
+
+	body {
+		place-items: center;
+		background: bottom left / 640px no-repeat url("./images/pattern-curve.svg");
+	}
+
+	.main {
+		display: grid;
+		grid-template-rows: 1fr auto 1fr;
+		grid-template-columns: repeat(10, 1fr);
+		gap: 0;
+		max-width: 70rem;
+	}
+
+	.gallery {
+		grid-column: 6/11;
+		grid-row: 1/4;
+		background: none;
+		padding: 0;
+		position: relative;
+	}
+
+	.gallery::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 130%;
+		height: 130%;
+		background: center / 100% no-repeat url(./images/pattern-bg.svg);
+		z-index: -1;
+	}
+
+	.gallery__buttons {
+		top: 100%;
+		left: 20%;
+		transform: translate(-50%, -50%);
+	}
+
+	.button {
+		padding: 1.5rem;
+	}
+
+	.button__image {
+		height: 1.2rem;
+	}
+
+	.testimonial {
+		grid-column: 1/7;
+		grid-row: 2/3;
+		z-index: 1;
+		justify-content: center;
+		padding-top: 4rem;
+		background: top left 8rem / 8rem no-repeat url(./images/pattern-quotes.svg);
+		gap: var(--gap-2);
+	}
+
+	.testimonial__quote {
+		font-size: var(--fs-l);
+		font-weight: var(--fw-3);
+		text-align: left;
+	}
+
+	.testimonial__author {
+		flex-direction: row;
+		gap: var(--gap-1);
+	}
 }
