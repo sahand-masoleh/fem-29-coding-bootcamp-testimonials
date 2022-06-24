@@ -11,6 +11,9 @@
 	--dark-blue: hsl(240, 38%, 20%);
 	--grayish-blue: hsl(240, 18%, 77%);
 
+	--fs-m: 16px;
+	--fs-l: 18px;
+
 	--fw-3: 300;
 	--fw-5: 500;
 	--fw-7: 700;
@@ -24,7 +27,6 @@ body {
 	min-height: 100vh;
 	display: grid;
 	grid-template-rows: 1fr auto;
-	place-items: center;
 	padding: var(--gap-1) var(--gap-2);
 	background: bottom right / contain no-repeat url("./images/pattern-curve.svg");
 }
@@ -72,6 +74,36 @@ body {
 	box-shadow: 0 2rem 2rem -1rem #00000050;
 }
 
+.testimonial {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-1);
+	padding-top: var(--gap-2);
+	background: top / 4rem no-repeat url(./images/pattern-quotes.svg);
+}
+
+.testimonial__quote {
+	font-size: var(--fs-l);
+	font-weight: var(--fw-3);
+	text-align: center;
+}
+
+.testimonial__author {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.testimonial__name {
+	font-weight: var(--fw-7);
+}
+
+.testimonial__post {
+	font-weight: var(--fw-5);
+	color: var(--grayish-blue);
+}
+
 .footer {
 	font-size: 0.5rem;
+	margin: auto;
 }
